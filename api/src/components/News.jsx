@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
+
 const News = () => {
-    const [news, setNews] = useState(false);
+    const [articles, setArticles] = useState([]);
 
     const search = async ()=>{
         try {
@@ -9,35 +10,36 @@ const News = () => {
             const response = await fetch(url);
             const data = await response.json();
 
-            console.log(data)
+            console.log(data.articles);
+            
 
-            setNews({
-                author : data.articles[0].author,
-                content : data.articles[0].content,
-                description : data.articles[0].description,
-                time : data.articles[0].publishedAt,
-                sourceName : data.articles[0].source.name,
-                tittle : data.articles[0].tittle,
-                url: data.articles[0].url,
-                image: data.articles[0].urltoImage,
-                status:data.status
-            })
+        setArticles(
+            data.articles
+        )
+
         } catch (error) {
-
-        
             
         }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         search()
     },[])
   return (
-    <div>
+    <div className='flex flex-col justify-between sm:flex-row sm:flex-wrap sm:gap-2 '>
         {
-            setNews.status
+            articles.map((article, index) => (
+                <div className='bg-amber-300 mx-auto w-2xs p-4' key={index}>
+                    <h3 className='text-xl text-blue-600'>title: {article.title} {article.publishedAt}</h3>
+                    <p className='text-sm'> author: {article.author},{article.source.name}</p>
+                    <p >description:{article.description}</p>
+                    <p>url: {article.url}</p>
+                    <p className='overflow-hidden'>Image: {article.urlToImage}</p>
+
+                </div>
+            ))
+            
         }
-      
     </div>
   )
 }
