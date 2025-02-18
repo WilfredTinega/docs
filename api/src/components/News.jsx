@@ -29,12 +29,11 @@ const News = () => {
     <div className='flex flex-col justify-between sm:flex-row sm:flex-wrap sm:gap-2 '>
         {
             articles.map((article, index) => (
-                <div className='bg-amber-300 mx-auto w-2xs p-4' key={index}>
+                <div className='bg-blend-lighten mx-auto w-2xs p-4' key={index}>
                     <h3 className='text-xl text-blue-600'>title: {article.title} {article.publishedAt}</h3>
                     <p className='text-sm'> author: {article.author},{article.source.name}</p>
                     <p >description:{article.description}</p>
-                    <p>url: {article.url}</p>
-                    <p className='overflow-hidden'>Image: {article.urlToImage}</p>
+                    <p><a href={article.url} target='blank'><img src={article.urlToImage} alt="" /></a></p>
 
                 </div>
             ))

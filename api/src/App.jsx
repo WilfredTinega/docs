@@ -1,10 +1,10 @@
 import React from 'react'
-import News from './components/News'
+import SearchFlights from './components/SearchFlights'
 
 const App = () => {
   return (
     <div>
-      <News/>
+      <SearchFlights/>
     </div>
   )
 }
