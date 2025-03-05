@@ -1,10 +1,13 @@
 import React from 'react'
-import SearchFlights from './components/SearchFlights'
+import {ToastContainer} from "react-toastify"
+import News from './pages/News'
 
 const App = () => {
+
   return (
     <div>
-      <SearchFlights/>
+      <ToastContainer autoClose={2000}/>
+      <News/>
     </div>
   )
 }
