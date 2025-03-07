@@ -4,7 +4,7 @@ import OpenAI from "openai";
 const Grok = () => {
     const grokLatest = async () => {
         const client = new OpenAI({
-            apiKey: import.meta.env.VITE_XAI_API_KEY,
+            apiKey: import.meta.env.VITE_XAI_API_KEY, dangerouslyAllowBrowser: true,
             baseURL: "https://api.x.ai/v1",
           });
           
@@ -12,7 +12,9 @@ const Grok = () => {
             model: "grok-2-latest"
           });
 
-          console.log(completion)
+          const response = await completion.text();
+
+          console.log(response)
     }
     
     useEffect(() => {
