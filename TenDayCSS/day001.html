@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ten days of css</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="m-3 p-5 grid gap-2 md:gap-4 lg:gap-6 grid-cols-1 sm min-h-100 bg-amber-50:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <div class="flex scale-95 fade-in-on-scroll opacity-0 translate-y-5 transition-all duration-700 shadow hover:shadow-green-500 hover:scale-100 justify-center items-center p-5 rounded-sm min-h-100 bg-amber-50">dip 1</div>
+    <div class="flex scale-95 fade-in-on-scroll opacity-0 translate-y-5 transition-all duration-700 shadow hover:shadow-green-500 hover:scale-100 justify-center items-center p-5 rounded-sm min-h-100 bg-amber-50 ">dip 2</div>
+    <div class="flex scale-95 fade-in-on-scroll opacity-0 translate-y-5 transition-all duration-700 shadow hover:shadow-green-500 hover:scale-100 justify-center items-center p-5 rounded-sm min-h-100 bg-amber-50">dip 3</div>
+    <div class="flex scale-95 fade-in-on-scroll opacity-0 translate-y-5 transition-all duration-700 shadow hover:shadow-green-500 hover:scale-100 justify-center items-center p-5 rounded-sm min-h-100 bg-amber-50">dip 4</div>
+    <div class="flex scale-95 fade-in-on-scroll opacity-0 translate-y-5 transition-all duration-700 shadow hover:shadow-green-500 hover:scale-100 justify-center items-center p-5 rounded-sm min-h-100 bg-amber-50">dip 5</div>
+    <div class="flex scale-95 fade-in-on-scroll opacity-0 translate-y-5 transition-all duration-700 shadow hover:shadow-green-500 hover:scale-100 justify-center items-center p-5 rounded-sm min-h-100 bg-amber-50">dip 6</div>
+    <div class="flex scale-95 fade-in-on-scroll opacity-0 translate-y-5 transition-all duration-700 shadow hover:shadow-green-500 hover:scale-100 justify-center items-center p-5 rounded-sm min-h-100 bg-amber-50">dip 7</div>
+    <div class="flex scale-95 fade-in-on-scroll opacity-0 translate-y-5 transition-all duration-700 shadow hover:shadow-green-500 hover:scale-100 justify-center items-center p-5 rounded-sm min-h-100 bg-amber-50">dip 8</div>
+    <div class="flex scale-95 fade-in-on-scroll opacity-0 translate-y-5 transition-all duration-700 shadow hover:shadow-green-500 hover:scale-100 justify-center items-center p-5 rounded-sm min-h-100 bg-amber-50">dip 9</div>
+    <div class="flex scale-95 fade-in-on-scroll opacity-0 translate-y-5 transition-all duration-700 shadow hover:shadow-green-500 hover:scale-100 justify-center items-center p-5 rounded-sm min-h-100 bg-amber-50">dip 10</div>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('opacity-100', 'translate-y-0');
+              entry.target.classList.remove('opacity-0', 'translate-y-5');
+            } else {
+              entry.target.classList.remove('opacity-100', 'translate-y-0');
+              entry.target.classList.add('opacity-0', 'translate-y-5');
+            }
+          });
+        }, {
+          threshold: 0.5 // Element is considered visible when 50% is in view
+        });
+      
+        document.querySelectorAll('.fade-in-on-scroll').forEach(el => {
+          observer.observe(el);
+        });
+      </script>
+      
+</body>
+</html>
